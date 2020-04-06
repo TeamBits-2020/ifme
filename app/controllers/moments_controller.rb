@@ -7,6 +7,7 @@ class MomentsController < ApplicationController
   include MomentsFormHelper
   include Shared
   include TagsHelper
+  include PagesConcern
 
   before_action :set_moment, only: %i[show edit update destroy picture]
   before_action :load_viewers, only: %i[new edit create update picture]
@@ -25,6 +26,7 @@ class MomentsController < ApplicationController
   # GET /moments/1.json
   def show
     show_with_comments(@moment)
+    @resources = fetch_resources
   end
 
   # GET /moments/new

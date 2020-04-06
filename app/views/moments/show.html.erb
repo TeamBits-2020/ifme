@@ -46,9 +46,9 @@
 <div class="smallMarginTop">
   <div class="label">What Resources could help?</div>
   <ul>
-    <li><%= link_to '7 Cups', '#' %></li>
-    <li><%= link_to 'A Close Look at PTSD Among Aging Adults', '#' %></li>
-    <li><%= link_to 'Antistress', '#' %></li>
+    <% @resources.each do |resource| %>
+      <li><%= resource["name"] %></li>
+    <% end %>
     <li><%= link_to 'More...', '/resources' %></li>
   </ul>
 </div>
