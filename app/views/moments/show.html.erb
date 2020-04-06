@@ -49,6 +49,7 @@
      <% @resources.each do |item|  %>
        <li><%= link_to item['name'], item['link'] %></li>
      <%end %>
+     <li><%= link_to  'More...', resources_path %></li>
   </ul>
   </div>
 
