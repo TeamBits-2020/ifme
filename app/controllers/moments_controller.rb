@@ -24,19 +24,19 @@ class MomentsController < ApplicationController
   # GET /moments/1
   # GET /moments/1.json
   def show
-    @resources = [{
-                        "name": "Aloe Bud",
-                        "link": "https://aloebud.com",
-                        "tags": ["self_care", "anonymous", "ios", "communities"],
-                        "languages": ["en"]
-                    },
-                    {
-                        "name": "Brown Sisters Speak",
-                        "link": "https://www.facebook.com/Brownsistersspeak",
-                        "tags": ["women_of_colour", "black_women", "self_care", "domestic_violence", "support_groups", "communities"],
-                        "languages": ["en", "es"]
-                    }]
     show_with_comments(@moment)
+    @resources = [{
+      "name": 'Aloe Bud',
+      "link": 'https://aloebud.com',
+      "tags": %w[self_care anonymous ios communities],
+      "languages": ['en']
+    },
+                  {
+                    "name": 'Brown Sisters Speak',
+                    "link": 'https://www.facebook.com/Brownsistersspeak',
+                    "tags": %w[women_of_colour black_women self_care domestic_violence support_groups communities],
+                    "languages": %w[en es]
+                  }]
   end
 
   # GET /moments/new
