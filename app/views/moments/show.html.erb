@@ -43,6 +43,17 @@
   </div>
 <% end %>
 
+<div class="smallMarginTop">
+  <div class="label">What Resources could help?</div>
+  <ul>
+    <li><%= link_to '7 Cups', '#' %></li>
+    <li><%= link_to 'A Close Look at PTSD Among Aging Adults', '#' %></li>
+    <li><%= link_to 'Antistress', '#' %></li>
+    <li><%= link_to 'More...', '#' %></li>
+  </ul>
+</div>
+
+
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
     <%= react_component('Form', props: secret_share_props(@moment)) %>
