@@ -25,18 +25,7 @@ class MomentsController < ApplicationController
   # GET /moments/1.json
   def show
     show_with_comments(@moment)
-    @resources = [{
-      "name": 'Aloe Bud',
-      "link": 'https://aloebud.com',
-      "tags": %w[self_care anonymous ios communities],
-      "languages": ['en']
-    },
-                  {
-                    "name": 'Brown Sisters Speak',
-                    "link": 'https://www.facebook.com/Brownsistersspeak',
-                    "tags": %w[women_of_colour black_women self_care domestic_violence support_groups communities],
-                    "languages": %w[en es]
-                  }]
+    @resources = JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
   end
 
   # GET /moments/new
