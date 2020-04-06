@@ -46,7 +46,7 @@
 <div class="smallMarginTop">
   <div class="label">What Resources could help?</div>
   <ul>
-    <% @resources.each do |resource| %>
+    <% @resources.first(3).each do |resource| %>
       <li><%= link_to resource["name"], resource["link"] %></li>
     <% end %>
     <li><%= link_to 'More...', '/resources' %></li>
