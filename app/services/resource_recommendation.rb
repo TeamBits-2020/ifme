@@ -16,6 +16,7 @@ class ResourceRecommendation
     moment_fix = @moment.fix.split
     moment_keywords.push(moment_fix)
     moment_keywords = moment_keywords.flatten
+    moment_keywords = moment_keywords.map(&:downcase)
     all_resources.each do |resource|
       unless (resource['tags'] & moment_keywords).empty?
         matched_resources.push(resource)
