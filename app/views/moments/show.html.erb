@@ -43,11 +43,11 @@
   </div>
 <% end %>
 
-<div class="smallMarginTop">
-  <div class="label">What Resources could help?</div>
+<div class='smallMarginTop'>
+  <div class='label'>What resources could help?</div>
   <ul>
-    <% @resources.first(3).each do |resource| %>
-      <li><%= link_to resource["name"], resource["link"] %></li>
+    <% @resources.take(3).each do |resource| %>
+      <li><%= link_to resource['name'], resource['link'] %></li>
     <% end %>
     <li><%= link_to 'More...', '/resources' %></li>
   </ul>
