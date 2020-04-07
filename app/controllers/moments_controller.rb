@@ -25,7 +25,7 @@ class MomentsController < ApplicationController
   # GET /moments/1.json
   def show
     show_with_comments(@moment)
-    @resources = JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
+    @resources = ResourceRecommendation.new(@moment).parse_json()
   end
 
   # GET /moments/new
