@@ -10,11 +10,9 @@ class ResourceRecommendation
     matched_resources = []
     moment_keywords = []
     moment_name = @moment.name.split
-    moment_keywords.push(moment_name)
     moment_why = @moment.why.split
-    moment_keywords.push(moment_why)
     moment_fix = @moment.fix.split
-    moment_keywords.push(moment_fix)
+    moment_keywords.push(moment_name, moment_why, moment_fix)
     moment_keywords = moment_keywords.flatten
     moment_keywords = moment_keywords.map(&:downcase)
     all_resources.each do |resource|
