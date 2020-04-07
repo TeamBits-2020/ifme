@@ -23,7 +23,4 @@ class ResourceRecommendation
     end
     matched_resources
   end
-  end
-
-#the mathcing happen with just one word and in alphabetical order
-# flatten puts it in order
+end
