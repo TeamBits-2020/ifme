@@ -15,7 +15,7 @@ class ResourceRecommendation
     @moment.categories.each do |category|
       moment_keywords.push(category['name'])
     end
-    @moment.categories.each do |mood|
+    @moment.moods.each do |mood|
       moment_keywords.push(mood['name'])
     end
     @moment.strategies.each do |strategy|
