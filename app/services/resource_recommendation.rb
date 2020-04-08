@@ -19,6 +19,13 @@ class ResourceRecommendation
         category_description = category['description']
         moment_keywords.push(category_description.split)
       end
+      @moment.strategies.each do |strategy|
+        moment_keywords.push(strategy['name'].split)
+      end
+      @moment.strategies.each do |strategy|
+        strategy_description = strategy['description']
+        moment_keywords.push(strategy_description.split)
+      end
       moment_keywords.push(moment_name, moment_why, moment_fix)
       moment_keywords = moment_keywords.flatten
       moment_keywords = moment_keywords.map(&:downcase)
