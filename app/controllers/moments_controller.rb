@@ -7,7 +7,7 @@ class MomentsController < ApplicationController
   include MomentsFormHelper
   include Shared
   include TagsHelper
-  include PagesConcern
+  # include PagesConcern
 
   before_action :set_moment, only: %i[show edit update destroy picture]
   before_action :load_viewers, only: %i[new edit create update picture]
