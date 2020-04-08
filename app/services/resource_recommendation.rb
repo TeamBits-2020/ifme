@@ -43,7 +43,10 @@ class ResourceRecommendation
     end
     moment_keywords = moment_keywords.map(&:downcase)
     all_resources.each do |resource|
-      unless (resource['tags'] & moment_keywords).empty?
+      tags = resource['tags'].map do |tag|
+        tag.split('_')
+      end
+      unless (tags.flatten & moment_keywords).empty?
         matched_resources.push(resource)
       end
     end
