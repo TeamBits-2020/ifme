@@ -19,6 +19,13 @@ class ResourceRecommendation
         category_description = category['description']
         moment_keywords.push(category_description.split)
       end
+      @moment.moods.each do |mood|
+        moment_keywords.push(mood['name'].split)
+      end
+      @moment.moods.each do |mood|
+        mood_description = mood['description']
+        moment_keywords.push(mood_description.split)
+      end
       @moment.strategies.each do |strategy|
         moment_keywords.push(strategy['name'].split)
       end
