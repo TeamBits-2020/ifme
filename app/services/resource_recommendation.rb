@@ -13,7 +13,10 @@ class ResourceRecommendation
     moment_why = @moment.why.split
     moment_fix = @moment.fix.split
     @moment.categories.each do |category|
-      moment_keywords.push(category['name'])
+      moment_keywords.push(category['name'].split)
+    end
+    @moment.categories.each do |category|
+      moment_keywords.push(category['description'].split)
     end
     @moment.moods.each do |mood|
       moment_keywords.push(mood['name'])
