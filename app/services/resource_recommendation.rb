@@ -10,8 +10,8 @@ class ResourceRecommendation
     matched_resources = []
     moment_keywords = []
     moment_name = @moment.name.split
-    moment_why = @moment.why.split
-    moment_fix = @moment.fix.split
+    moment_why = ActionController::Base.helpers.strip_tags(@moment.why).split
+    moment_fix = ActionController::Base.helpers.strip_tags(@moment.fix).split
     @moment.categories.each do |category|
       moment_keywords.push(category['name'].split)
     end
