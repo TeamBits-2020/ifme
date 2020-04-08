@@ -36,8 +36,15 @@ class ResourceRecommendation
       moment_keywords.push(moment_name, moment_why, moment_fix)
       moment_keywords = moment_keywords.flatten
       moment_keywords = moment_keywords.map(&:downcase)
+      moment_keywords.each do |keyword|
+        keyword.gsub!(/([_@#!%()\-=;><,{}\~\[\]\.\/\?\"\*\^\$\+\-]+)/, ' ')
+      end
       all_resources.each do |resource|
-        unless (resource['tags'] & moment_keywords).empty?
+        resource_tags = resource['tags']
+        resource_tags.each do |tag|
+            tag.gsub!(/([_@#!%()\-=;><,{}\~\[\]\.\/\?\"\*\^\$\+\-]+)/, ' ')
+        end
+        unless (resource_tags & moment_keywords).empty?
           matched_resources.push(resource)
         end
       end
