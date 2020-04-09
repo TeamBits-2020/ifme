@@ -8,9 +8,9 @@ class ResourceRecommendation
 
   def resources
     matched_resources = []
-    category_keywords
-    mood_keywords
-    strategy_keywords
+    extract_category_keywords
+    extract_mood_keywords
+    extract_strategy_keywords
     @moment_keywords.push(moment_name, moment_why, moment_fix)
     @moment_keywords = @moment_keywords.flatten
     @moment_keywords = @moment_keywords.each do |keyword|
@@ -50,21 +50,21 @@ class ResourceRecommendation
     ActionController::Base.helpers.strip_tags(str)
   end
 
-  def category_keywords
+  def extract_category_keywords
     @moment.categories.each do |category|
       @moment_keywords.push(category['name'].split,
                             strip_tags(category['description']).split)
     end
   end
 
-  def mood_keywords
+  def extract_mood_keywords
     @moment.moods.each do |mood|
       @moment_keywords.push(mood['name'].split,
                             strip_tags(mood['description']).split)
     end
   end
 
-  def strategy_keywords
+  def extract_strategy_keywords
     @moment.strategies.each do |strategy|
       @moment_keywords.push(strategy['name'].split,
                             strip_tags(strategy['description']).split)
