@@ -11,7 +11,9 @@ class ResourceRecommendation
     extract_category_keywords
     extract_mood_keywords
     extract_strategy_keywords
-    @moment_keywords.push(moment_name, moment_why, moment_fix)
+    extract_moment_name
+    extract_moment_why
+    extract_moment_fix
     @moment_keywords = @moment_keywords.flatten
     @moment_keywords = @moment_keywords.each do |keyword|
       keyword.gsub!(%r{([_@#!%()\-=;><,{}\~\[\]\./\?\"\*\^\$\+\-]+)}, '')
@@ -34,16 +36,16 @@ class ResourceRecommendation
     JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
   end
 
-  def moment_name
-    @moment.name.split
+  def extract_moment_name
+    @moment_keywords.push(@moment.name.split)
   end
 
-  def moment_why
-    strip_tags(@moment.why).split
+  def extract_moment_why
+    @moment_keywords.push(strip_tags(@moment.why).split)
   end
 
-  def moment_fix
-    strip_tags(@moment.fix).split
+  def extract_moment_fix
+    @moment_keywords.push(strip_tags(@moment.fix).split)
   end
 
   def strip_tags(str)
