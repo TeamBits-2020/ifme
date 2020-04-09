@@ -9,11 +9,8 @@ class ResourceRecommendation
   def resources
     matched_resources = []
     category_keywords
+    mood_keywords
 
-    @moment.moods.each do |mood|
-      @moment_keywords.push(mood['name'].split,
-                           strip_tags(mood['description']).split)
-    end
     @moment.strategies.each do |strategy|
       @moment_keywords.push(strategy['name'].split,
                            strip_tags(strategy['description']).split)
@@ -59,6 +56,13 @@ class ResourceRecommendation
     @moment.categories.each do |category|
       @moment_keywords.push(category['name'].split,
                             strip_tags(category['description']).split)
+    end
+  end
+
+  def mood_keywords
+    @moment.moods.each do |mood|
+      @moment_keywords.push(mood['name'].split,
+                            strip_tags(mood['description']).split)
     end
   end
 end
