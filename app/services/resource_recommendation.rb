@@ -28,6 +28,8 @@ class ResourceRecommendation
     matched_resources
   end
 
+  private
+
   def all_resources
     JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
   end
