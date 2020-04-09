@@ -30,13 +30,13 @@ class ResourceRecommendation
     end
     @moment.strategies.each do |strategy|
       strategy_description = strategy['description']
-      strategy_description =strip_tags(strategy['description'])
+      strategy_description = strip_tags(strategy['description'])
       moment_keywords.push(strategy_description.split)
     end
     moment_keywords.push(moment_name, moment_why, moment_fix)
     moment_keywords = moment_keywords.flatten
     moment_keywords = moment_keywords.each do |keyword|
-      keyword.gsub!(/([_@#!%()\-=;><,{}\~\[\]\.\/\?\"\*\^\$\+\-]+)/, '')
+      keyword.gsub!(%r{([_@#!%()\-=;><,{}\~\[\]\./\?\"\*\^\$\+\-]+)}, '')
     end
     moment_keywords = moment_keywords.map(&:downcase)
     all_resources.each do |resource|
@@ -59,7 +59,7 @@ class ResourceRecommendation
   end
 
   def moment_fix
-   strip_tags(@moment.fix).split
+    strip_tags(@moment.fix).split
   end
 
   def strip_tags(str)
