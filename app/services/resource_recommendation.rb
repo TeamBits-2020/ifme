@@ -9,7 +9,6 @@ class ResourceRecommendation
     all_resources = JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
     matched_resources = []
     moment_keywords = []
-    moment_why = strip_tags(@moment.why).split
     moment_fix = strip_tags(@moment.fix).split
     @moment.categories.each do |category|
       moment_keywords.push(category['name'].split)
@@ -54,6 +53,10 @@ class ResourceRecommendation
 
   def moment_name
     @moment.name.split
+  end
+
+  def moment_why
+    strip_tags(@moment.why).split
   end
 
   def strip_tags(str)
