@@ -28,19 +28,16 @@ class ResourceRecommendation
     matched_resources = []
     moment_keywords = []
     @moment.categories.each do |category|
-      category_description = html_clean(category['description'])
       moment_keywords.push(category['name'].split)
-      moment_keywords.push(category_description.split)
+      moment_keywords.push(html_clean(category['description']).split)
     end
     @moment.moods.each do |mood|
-      mood_description = html_clean(mood['description'])
       moment_keywords.push(mood['name'].split)
-      moment_keywords.push(mood_description.split)
+      moment_keywords.push(html_clean(mood['description']).split)
     end
     @moment.strategies.each do |strategy|
-      strategy_description = html_clean(strategy['description'])
       moment_keywords.push(strategy['name'].split)
-      moment_keywords.push(strategy_description.split)
+      moment_keywords.push(html_clean(strategy['description']).split)
     end
 
     moment_keywords.push(moment_name, moment_why, moment_fix)
