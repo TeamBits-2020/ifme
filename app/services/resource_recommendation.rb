@@ -10,9 +10,7 @@ class ResourceRecommendation
     matched_resources = []
     extract_moment_keywords
     @moment_keywords = @moment_keywords.flatten
-    @moment_keywords = @moment_keywords.each do |keyword|
-      keyword.gsub!(%r{([_@#!%()\-=;><,{}\~\[\]\./\?\"\*\^\$\+\-]+)}, '')
-    end
+    remove_special_chars
     downcase_keywords
     all_resources.each do |resource|
       tags = resource['tags'].map do |tag|
@@ -79,5 +77,11 @@ class ResourceRecommendation
 
   def downcase_keywords
     @moment_keywords = @moment_keywords.map(&:downcase)
+  end
+
+  def remove_special_chars
+    @moment_keywords = @moment_keywords.each do |keyword|
+      keyword.gsub!(%r{([_@#!%()\-=;><,{}\~\[\]\./\?\"\*\^\$\+\-]+)}, '')
+    end
   end
 end
