@@ -13,10 +13,10 @@ class ResourceRecommendation
     remove_special_chars
     downcase_keywords
     all_resources.each do |resource|
-      tags = resource['tags'].map do |tag|
+      tags = resource['tags'].flat_map do |tag|
         tag.split('_')
       end
-      unless (tags.flatten & @moment_keywords).empty?
+      unless (tags & @moment_keywords).empty?
         matched_resources.push(resource)
       end
     end
