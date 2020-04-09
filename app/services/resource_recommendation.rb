@@ -12,7 +12,6 @@ class ResourceRecommendation
       moment_keywords.push(category['name'].split)
     end
     @moment.categories.each do |category|
-      category_description = category['description']
       category_description = strip_tags(category['description'])
       moment_keywords.push(category_description.split)
     end
@@ -20,7 +19,6 @@ class ResourceRecommendation
       moment_keywords.push(mood['name'].split)
     end
     @moment.moods.each do |mood|
-      mood_description = mood['description']
       mood_description = strip_tags(mood['description'])
       moment_keywords.push(mood_description.split)
     end
@@ -28,7 +26,6 @@ class ResourceRecommendation
       moment_keywords.push(strategy['name'].split)
     end
     @moment.strategies.each do |strategy|
-      strategy_description = strategy['description']
       strategy_description = strip_tags(strategy['description'])
       moment_keywords.push(strategy_description.split)
     end
