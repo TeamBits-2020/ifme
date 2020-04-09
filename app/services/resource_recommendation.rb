@@ -6,7 +6,6 @@ class ResourceRecommendation
   end
 
   def resources
-    all_resources = JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
     matched_resources = []
     moment_keywords = []
     @moment.categories.each do |category|
@@ -48,6 +47,10 @@ class ResourceRecommendation
       end
     end
     matched_resources
+  end
+
+  def all_resources
+    JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
   end
 
   def moment_name
