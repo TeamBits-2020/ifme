@@ -16,7 +16,7 @@ class ResourceRecommendation
     @moment_keywords = @moment_keywords.each do |keyword|
       keyword.gsub!(%r{([_@#!%()\-=;><,{}\~\[\]\./\?\"\*\^\$\+\-]+)}, '')
     end
-    @moment_keywords = @moment_keywords.map(&:downcase)
+    downcase_keywords
     all_resources.each do |resource|
       tags = resource['tags'].map do |tag|
         tag.split('_')
@@ -69,5 +69,9 @@ class ResourceRecommendation
       @moment_keywords.push(strategy['name'].split,
                             strip_tags(strategy['description']).split)
     end
+  end
+
+  def downcase_keywords
+    @moment_keywords = @moment_keywords.map(&:downcase)
   end
 end
