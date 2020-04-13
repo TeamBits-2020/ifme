@@ -22,13 +22,10 @@ class ResourceRecommendation
   end
 
   def match_keywords
-    all_resources.each do |resource|
-      resource_tags = resource['tags'].map do |tag|
-        tag.split('_')
-      end
-      unless (resource_tags.flatten & @moment_keywords).empty?
-        @matched_resources.push(resource)
-      end
+    all_resources.select do |resource|
+      resource_tags = resource['tags'].map { |tag| tag.split('_') }
+      
+      (resource_tags.flatten & @moment_keywords).any?
     end
   end
 
