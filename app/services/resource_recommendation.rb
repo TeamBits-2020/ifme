@@ -7,20 +7,16 @@ class ResourceRecommendation
   end
 
   def resources
-    matched_resources = []
     extract_moment_keywords
     @moment_keywords = @moment_keywords.flatten
     remove_special_chars
     downcase_keywords
-    all_resources.each do |resource|
+    all_resources.select do |resource|
       tags = resource['tags'].flat_map do |tag|
         tag.split('_')
       end
-      unless (tags & @moment_keywords).empty?
-        matched_resources.push(resource)
-      end
+      (tags & @moment_keywords).any?
     end
-    matched_resources
   end
 
   private
