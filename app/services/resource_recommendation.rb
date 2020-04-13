@@ -3,7 +3,6 @@ class ResourceRecommendation
   def initialize(moment)
     @moment = moment
     @moment_keywords = []
-    @matched_resources = []
   end
 
   def resources
@@ -13,7 +12,6 @@ class ResourceRecommendation
     @moment_keywords.push(moment_name, moment_why, moment_fix)
     modify_keywords
     match_keywords
-    @matched_resources
   end
 
   private
@@ -54,13 +52,11 @@ class ResourceRecommendation
   end
 
   def match_keywords
-    all_resources.each do |resource|
+    all_resources.select do |resource|
       resource_tags = resource['tags'].flat_map do |tag|
         tag.split('_')
       end
-      unless (resource_tags & @moment_keywords).empty?
-        @matched_resources.push(resource)
-      end
+      (resource_tags & @moment_keywords).any?
     end
   end
 end
