@@ -6,32 +6,6 @@ class ResourceRecommendation
     @matched_resources = []
   end
 
-  def get_keywords(array)
-    array.each do |item|
-      @moment_keywords.push(item['name'].split,
-                            html_clean(item['description']).split)
-    end
-  end
-
-  def modify_keywords
-    @moment_keywords = @moment_keywords.flatten
-    @moment_keywords.each do |keyword|
-      keyword.gsub!(%r{([_@#!%()\-=;><,{}\~\[\]\./\?\"\*\^\$\+\-]+)}, '')
-    end
-    @moment_keywords = @moment_keywords.map(&:downcase)
-  end
-
-  def match_keywords
-    all_resources.each do |resource|
-      resource_tags = resource['tags'].map do |tag|
-        tag.split('_')
-      end
-      unless (resource_tags.flatten & @moment_keywords).empty?
-        @matched_resources.push(resource)
-      end
-    end
-  end
-
   def resources
     get_keywords(@moment.categories)
     get_keywords(@moment.moods)
@@ -62,5 +36,31 @@ class ResourceRecommendation
 
   def moment_fix
     html_clean(@moment.fix).split
+  end
+
+  def get_keywords(array)
+    array.each do |item|
+      @moment_keywords.push(item['name'].split,
+                            html_clean(item['description']).split)
+    end
+  end
+
+  def modify_keywords
+    @moment_keywords = @moment_keywords.flatten
+    @moment_keywords.each do |keyword|
+      keyword.gsub!(%r{([_@#!%()\-=;><,{}\~\[\]\./\?\"\*\^\$\+\-]+)}, '')
+    end
+    @moment_keywords = @moment_keywords.map(&:downcase)
+  end
+
+  def match_keywords
+    all_resources.each do |resource|
+      resource_tags = resource['tags'].map do |tag|
+        tag.split('_')
+      end
+      unless (resource_tags.flatten & @moment_keywords).empty?
+        @matched_resources.push(resource)
+      end
+    end
   end
 end
