@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MomentKeyword
+class MomentKeywords
   def initialize(moment)
     @moment = moment
     @moment_keywords = []
