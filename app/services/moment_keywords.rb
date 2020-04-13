@@ -7,9 +7,9 @@ class MomentKeywords
   end
 
   def extract_moment_keywords
-    extract_category_keywords
-    extract_mood_keywords
-    extract_strategy_keywords
+    extract_keywords(@moment.categories)
+    extract_keywords(@moment.moods)
+    extract_keywords(@moment.strategies)
     extract_moment_name
     extract_moment_why
     extract_moment_fix
@@ -34,24 +34,10 @@ class MomentKeywords
     ActionController::Base.helpers.strip_tags(str)
   end
 
-  def extract_category_keywords
-    @moment.categories.each do |category|
-      @moment_keywords.push(category['name'].split,
-                            strip_tags(category['description']).split)
-    end
-  end
-
-  def extract_mood_keywords
-    @moment.moods.each do |mood|
-      @moment_keywords.push(mood['name'].split,
-                            strip_tags(mood['description']).split)
-    end
-  end
-
-  def extract_strategy_keywords
-    @moment.strategies.each do |strategy|
-      @moment_keywords.push(strategy['name'].split,
-                            strip_tags(strategy['description']).split)
+  def extract_keywords(array)
+    array.each do |item|
+      @moment_keywords.push(item['name'].split,
+                            strip_tags(item['description']).split)
     end
   end
 end
