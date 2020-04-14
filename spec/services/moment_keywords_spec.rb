@@ -1,15 +1,16 @@
-require 'rails_helper'
+require 'spec_helper'
 
-FactoryBot.build(:moment,
-                 name: "Test ADDICTION",
-                 why: "More testing content self-care.",
-                 fix: "Text tested is @Teachers!!")
+describe MomentKeywords do
+  subject(:moment) {FactoryBot.build(:moment,
+                                     name: "Test ADDICTION",
+                                     why: "More testing content self-care.",
+                                     fix: "Text tested is @Teachers!!") }
 
 
-    # moment_name = moment.name
-    # moment_why = moment.why
-    # moment_fix = moment.fix
+  it 'downcases words' do
+    keywords = MomentKeywords.new(moment).extract_moment_keywords
+    expect(keywords).to eq(["test", "addiction", "more", "testing", "content", "self", "care", "text", "tested", "is", "teachers"])
+  end
+end
 
-# se eu passar extract_moment_keywords nesse moment, eu esperaria um array como este de palavras
-# ["test", "addiction", "more", "testing", "content", "self", "care", "text", "tested", "is", "teachers"]
 
