@@ -8,8 +8,6 @@ class ResourceRecommendation
 
   def resources
     @moment_keywords = MomentKeywords.new(@moment).extract_moment_keywords
-    @moment_keywords = @moment_keywords.flatten
-    remove_special_chars
     downcase_keywords
     all_resources.select do |resource|
       tags = resource['tags'].flat_map do |tag|
@@ -23,12 +21,6 @@ class ResourceRecommendation
 
   def all_resources
     JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
-  end
-
-  def remove_special_chars
-    @moment_keywords = @moment_keywords.each do |keyword|
-      keyword.gsub!(/[^\p{Alpha} -]/, '')
-    end
   end
 
   def downcase_keywords

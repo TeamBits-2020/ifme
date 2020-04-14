@@ -13,6 +13,7 @@ class MomentKeywords
     extract_moment_name
     extract_moment_why
     extract_moment_fix
+    remove_special_chars
     @moment_keywords
   end
 
@@ -38,6 +39,13 @@ class MomentKeywords
     array.each do |item|
       @moment_keywords.push(item['name'].split,
                             strip_tags(item['description']).split)
+    end
+  end
+
+  def remove_special_chars
+    @moment_keywords = @moment_keywords.flatten
+    @moment_keywords = @moment_keywords.each do |keyword|
+      keyword.gsub!(/[^\p{Alpha} -]/, '')
     end
   end
 end
