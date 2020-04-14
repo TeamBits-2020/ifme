@@ -11,6 +11,17 @@ describe MomentKeywords do
     keywords = MomentKeywords.new(moment).extract_moment_keywords
     expect(keywords).to include("addiction")
   end
+
+  it 'separates hyphenated words' do
+    keywords = MomentKeywords.new(moment).extract_moment_keywords
+    expect(keywords).to include("self", "care")
+  end
+
+  it 'removes special characters' do
+    keywords = MomentKeywords.new(moment).extract_moment_keywords
+    expect(keywords).to include("teachers")
+  end
 end
 
 
+#let or subject
