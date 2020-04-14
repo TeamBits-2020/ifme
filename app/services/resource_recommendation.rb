@@ -8,7 +8,7 @@ class ResourceRecommendation
 
   def resources
     @moment_keywords = MomentKeywords.new(@moment).extract_moment_keywords
-    downcase_keywords
+    # downcase_keywords
     all_resources.select do |resource|
       tags = resource['tags'].flat_map do |tag|
         tag.split('_')
@@ -21,9 +21,5 @@ class ResourceRecommendation
 
   def all_resources
     JSON.parse(File.read(Rails.root.join('doc', 'pages', 'resources.json')))
-  end
-
-  def downcase_keywords
-    @moment_keywords = @moment_keywords.map(&:downcase)
   end
 end

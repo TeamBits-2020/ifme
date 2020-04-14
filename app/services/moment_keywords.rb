@@ -14,7 +14,7 @@ class MomentKeywords
     extract_moment_why
     extract_moment_fix
     remove_special_chars
-    @moment_keywords
+    downcase_keywords
   end
 
   private
@@ -46,5 +46,9 @@ class MomentKeywords
     @moment_keywords = @moment_keywords.flatten.each do |keyword|
       keyword.gsub!(/[^\p{Alpha} -]/, '')
     end
+  end
+
+  def downcase_keywords
+    @moment_keywords = @moment_keywords.map(&:downcase)
   end
 end
