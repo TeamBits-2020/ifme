@@ -43,8 +43,7 @@ class MomentKeywords
   end
 
   def remove_special_chars
-    @moment_keywords = @moment_keywords.flatten
-    @moment_keywords = @moment_keywords.each do |keyword|
+    @moment_keywords = @moment_keywords.flatten.each do |keyword|
       keyword.gsub!(/[^\p{Alpha} -]/, '')
     end
   end
