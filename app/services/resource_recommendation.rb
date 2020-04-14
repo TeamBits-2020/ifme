@@ -27,7 +27,7 @@ class ResourceRecommendation
 
   def remove_special_chars
     @moment_keywords = @moment_keywords.each do |keyword|
-      keyword.gsub!(/[^a-z]+/i, '')
+      keyword.gsub!(/[^\p{Alpha} -]/, '')
     end
   end
 
