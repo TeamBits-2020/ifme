@@ -8,7 +8,6 @@ class ResourceRecommendation
 
   def resources
     @moment_keywords = MomentKeywords.new(@moment).extract_moment_keywords
-    # downcase_keywords
     all_resources.select do |resource|
       tags = resource['tags'].flat_map do |tag|
         tag.split('_')
