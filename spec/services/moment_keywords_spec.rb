@@ -1,8 +1,9 @@
 describe MomentKeywords do
   subject(:moment) {FactoryBot.build(:moment,
+                                     categories: [build(:category, name: 'free', description: 'My description')],
                                      name: "Test ADDICTION",
                                      why: "More testing content self-care.",
-                                     fix: "Text tested is @Teachers!!") }
+                                     fix: "Text tested is @Teachers!!" )}
 
   let(:keywords) { MomentKeywords.new(moment).extract_moment_keywords }
 
@@ -20,11 +21,13 @@ describe MomentKeywords do
 
   it 'returns an array of all the key words' do
     expect(keywords).to eq(
-                            ["test", "addiction", "more", "testing", "content", "self care",
+                            ["free", "my", "description", "test", "addiction", "more", "testing", "content", "self care",
                              "text", "tested", "is", "teachers"]
                         )
   end
 end
 
+# @moment.moods
+# @moment.strategies
 
 
