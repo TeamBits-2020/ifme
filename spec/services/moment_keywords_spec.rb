@@ -9,12 +9,17 @@ describe MomentKeywords do
         name: "mood-name",
         description: "mood-description."
     )]}
+    let(:strategies) {[FactoryBot.build(:strategy,
+        name: "strategy-name",
+        description: "strategy-description."
+    )]}
     subject(:moment) {FactoryBot.build(:moment,
                                        name: "Test ADDICTION",
                                        why: "More testing content self-care.",
                                        fix: "Text tested is @Teachers!!",
                                        categories: categories,
-                                       moods: moods
+                                       moods: moods,
+                                       strategies: strategies
                                        ) }
     let(:keywords) { MomentKeywords.new(moment).extract_keywords }
     it 'downcases words' do
@@ -32,8 +37,9 @@ describe MomentKeywords do
     it 'returns an array of all the key words' do
         expect(keywords).to eq(
             ["category", "name", "category", "description", "mood name", 
-                "mood description", "test", "addiction", "more", "testing", 
-                "content", "self care", "text", "tested", "is", "teachers"]
+                "mood description", "strategy name", "strategy description",
+                "test", "addiction", "more", "testing", "content", 
+                "self care", "text", "tested", "is", "teachers"]
         )
     end
   end
