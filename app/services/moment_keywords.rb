@@ -41,6 +41,7 @@ class MomentKeywords
   def modify_keywords
     @moment_keywords = @moment_keywords.flatten
     @moment_keywords.each do |keyword|
+      keyword.gsub!('-' || '_', ' ')
       keyword.gsub!(/[^\p{Alpha} -]/, '')
     end
     @moment_keywords = @moment_keywords.map(&:downcase)
