@@ -1,6 +1,6 @@
 describe ResourceRecommendation do
   subject(:moment) {FactoryBot.build(:moment,
-                                     name: 'TEACHERS',
+                                     name: 'SELF-INJURY@',
                                      why: 'text',
                                      fix: 'text' )}
 
@@ -9,11 +9,17 @@ describe ResourceRecommendation do
   describe 'A test for resources method from ResourceRecommendation class' do
     it 'returns recommended resources based on moment keywords' do
       available_resource = [ {
-                                 'name'=> 'Insight Timer',
-                                 'link'=> 'https://insighttimer.com',
-                                 'tags'=> ['free', 'meditation', 'teachers', 'self_care', 'android', 'ios'],
-                                 'languages'=> ['en']
-                         } ]
+                                   'name'=> "LifeSIGNS: Self Injury Guidance & Network Support (UK)",
+                                   'link'=> "http://www.lifesigns.org.uk/",
+                                   'tags'=> ["self_injury", "blog", "books", "communities"],
+                                   'languages'=> ["en"]
+                               },
+                             {
+                                 'name'=> "Self-Injury Outreach and Support (Canada)",
+                                 'link'=> "http://sioutreach.org/",
+                                 'tags'=> ["self_injury", "education"],
+                                 'languages'=> ["en"]
+                             }]
       allow(JSON).to receive(:parse) { available_resource }
       expect(resources).to eq(available_resource)
     end
@@ -30,6 +36,3 @@ describe ResourceRecommendation do
     end
   end
 end
-
-
-
