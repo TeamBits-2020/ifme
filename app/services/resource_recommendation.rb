@@ -10,7 +10,7 @@ class ResourceRecommendation
     @moment_keywords = MomentKeywords.new(@moment).extract_moment_keywords
     all_resources.select do |resource|
       tags = resource['tags'].flat_map do |tag|
-        tag.split('_')
+        tag.gsub('_', ' ')
       end
       (tags & @moment_keywords).any?
     end
