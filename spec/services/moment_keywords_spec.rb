@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe MomentKeywords do
   subject(:moment) {FactoryBot.build(:moment,
                                      name: "Test ADDICTION",
@@ -12,12 +10,19 @@ describe MomentKeywords do
     expect(keywords).to include("addiction")
   end
 
-  it 'separates hyphenated words' do
-    expect(keywords).to include("self", "care")
+  it 'removes hyphen from compound words' do
+    expect(keywords).to include("self care")
   end
 
   it 'removes special characters' do
     expect(keywords).to include("teachers")
+  end
+
+  it 'returns an array of all the key words' do
+    expect(keywords).to eq(
+                            ["test", "addiction", "more", "testing", "content", "self care",
+                             "text", "tested", "is", "teachers"]
+                        )
   end
 end
 
