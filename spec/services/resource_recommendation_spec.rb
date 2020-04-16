@@ -40,5 +40,16 @@ describe ResourceRecommendation do
             expect(recommended_resources).to eq(matched_resource)
         end
 
+        it 'matches keywords with special characters' do
+            matched_resource = [ {
+                "name"=> "Insight Timer",
+                "link"=> "https://insighttimer.com",
+                "tags"=> ["teachers"],
+                "languages"=> ["en"]
+            }  ]
+            allow(JSON).to receive(:parse) { matched_resource }
+            expect(recommended_resources).to eq(matched_resource)
+        end
+
     end
 end
