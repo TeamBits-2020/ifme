@@ -74,6 +74,7 @@ describe MomentsController do
       get :show, params: { id: moment.id }
       expect(response).to render_template(:show)
     end
+    
   end
 
   describe '#create' do

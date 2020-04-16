@@ -43,6 +43,17 @@
   </div>
 <% end %>
 
+<div class='smallMarginTop'>
+  <div class='label'>What resources could help?</div>
+  <ul>
+    <% @resources.take(3).each do |resource| %>
+      <li><%= link_to resource['name'], resource['link'] %></li>
+    <% end %>
+    <li><%= link_to 'More...', '/resources' %></li>
+  </ul>
+</div>
+
+
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
     <%= react_component('Form', props: secret_share_props(@moment)) %>
