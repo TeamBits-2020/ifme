@@ -18,8 +18,7 @@ class ResourceRecommendation
   def match_keywords
     all_resources.select do |resource|
       resource_tags = resource['tags'].flat_map do |tag|
-        # tag.split('_')
-        tag.gsub('_', ' ')
+        tag.tr('_', ' ')
       end
       (resource_tags & @moment_keywords).any?
     end
