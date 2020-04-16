@@ -1,18 +1,27 @@
-
 describe MomentKeywords do
     let(:user) { create(:user) }
-    let(:categories) {[FactoryBot.build(:category,
-                                        name: "category name",
-                                        description: "category description."
-    )]}
-    let(:moods) {[FactoryBot.build(:mood,
-        name: "mood-name",
-        description: "mood-description."
-    )]}
-    let(:strategies) {[FactoryBot.build(:strategy,
-        name: "strategy-name",
-        description: "strategy-description."
-    )]}
+    let(:categories) do
+        [FactoryBot.build(
+          :category,
+          name: "category name",
+          description: "category description."
+        )]
+      end
+    let(:moods) do
+        [FactoryBot.build(
+          :mood,
+          name: "mood-name",
+          description: "mood-description."
+        )]
+    end  
+    let(:strategies) do
+        [FactoryBot.build(
+          :strategy,
+          name: "strategy-name",
+          description: "strategy-description."
+        )]
+    end 
+    
     subject(:moment) {FactoryBot.build(:moment,
                                        name: "Test ADDICTION",
                                        why: "More testing content self-care.",
