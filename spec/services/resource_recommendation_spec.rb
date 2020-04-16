@@ -1,6 +1,6 @@
 
 describe ResourceRecommendation do
-    subject(:moment) {FactoryBot.build(:moment,
+    let(:moment) {FactoryBot.build(:moment,
                                        name: "Test ADDICTION",
                                        why: "More testing content self-care.",
                                        fix: "Text tested is @Teachers!!") }
