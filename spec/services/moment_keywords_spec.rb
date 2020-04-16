@@ -30,7 +30,7 @@ describe MomentKeywords do
                                        moods: moods,
                                        strategies: strategies
                                        ) }
-    let(:keywords) { MomentKeywords.new(moment).extract_keywords }
+    subject(:keywords) { MomentKeywords.new(moment).extract_keywords }
     it 'downcases words' do
       expect(keywords).to include("addiction")
     end

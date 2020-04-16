@@ -5,7 +5,7 @@ describe ResourceRecommendation do
                                        why: "More testing content self-care.",
                                        fix: "Text tested is @Teachers!!") }
      
-    let(:recommended_resources) { ResourceRecommendation.new(moment).resources }
+    subject(:recommended_resources) { ResourceRecommendation.new(moment).resources }
     describe 'test .resource method for ResourceRecommendation class' do
         it 'returns recommended resources matched with moment keywords' do
             matched_resource = [ {
