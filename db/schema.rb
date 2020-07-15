@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_000349) do
     t.boolean "published", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["link"], name: "index_external_resources_on_link", unique: true
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
