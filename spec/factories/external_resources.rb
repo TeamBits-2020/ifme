@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :external_resource do
-    name { "MyString" }
-    link { "MyString" }
-    tags { "MyString" }
-    languages { "MyString" }
+    name { 'Test resource name' }
+    link { 'www.resourcelink.com' }
+    tags { ['tag_test1', 'tag_test2'] }
+    languages { ['en', 'pt-BR'] }
     published { false }
   end
 end
