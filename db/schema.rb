@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_035711) do
+ActiveRecord::Schema.define(version: 2020_07_15_000349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2020_05_27_035711) do
     t.string "visibility"
     t.text "viewers"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+  end
+
+  create_table "external_resources", force: :cascade do |t|
+    t.string "name"
+    t.string "link"
+    t.string "tags", default: [], null: false, array: true
+    t.string "languages", default: [], null: false, array: true
+    t.boolean "published", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
