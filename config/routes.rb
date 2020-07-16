@@ -110,6 +110,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :resources, only: :new
+
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
   match 'admin_dashboard', to: 'pages#admin_dashboard', via: :get
@@ -120,6 +122,7 @@ Rails.application.routes.draw do
   match 'press', to: 'pages#press', via: :get
   match 'resources', to: 'pages#resources', via: :get
   get 'home_data', to: 'pages#home_data', defaults: { format: 'json' }
+
 
   devise_for :users, controllers: { registrations: :registrations,
                                     omniauth_callbacks: 'omniauth_callbacks',
