@@ -20,7 +20,7 @@ module ExternalResourcesFormHelper
 
   def external_resource_text_input_props(field, type, label, required = false)
     external_resource_input_props(field, type, label)
-        .merge(value: @external_resource[field] || nil, required: required, dark: true)
+        .merge(value: @external_resource[field] || nil, required: required, dark: false)
   end
 
   def external_resource_name
