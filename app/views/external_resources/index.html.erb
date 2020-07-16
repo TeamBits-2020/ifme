@@ -1,0 +1,14 @@
+<% title t('navigation.resources') %>
+<div>
+<% if @resources.count > 0 %>
+    <% @resources.each do |resource| %>
+            <% if resource.published? %>
+                <div><%= resource.name %> - Approved </div>
+            <% else %>
+                <div><%= resource.name %> - Pending Approval </div>
+            <% end %>   
+    <% end %>
+<% else %>
+ <p>No External Resources</p>
+<% end %>
+</div>

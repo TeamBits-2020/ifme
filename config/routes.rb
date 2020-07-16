@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :medications
 
+  resources :external_resources
+
   resources :moods do
     collection do
       post 'premade'
