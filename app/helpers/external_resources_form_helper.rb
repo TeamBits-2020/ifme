@@ -15,7 +15,7 @@ module ExternalResourcesFormHelper
   end
 
   def external_resources_form_inputs
-    [external_resource_name, external_resource_link, external_resource_language]
+    [external_resource_name, external_resource_link, external_resource_languages]
   end
 
   def external_resource_text_input_props(field, type, label, required = false)
@@ -24,15 +24,15 @@ module ExternalResourcesFormHelper
   end
 
   def external_resource_name
-    external_resource_text_input_props('name', 'text', 'Name', true)
+    external_resource_text_input_props('name', 'text', 'name', true)
   end
 
   def external_resource_link
-    external_resource_text_input_props('link', 'text', 'Link', true)
+    external_resource_text_input_props('link', 'text', 'link', true)
   end
 
-  def external_resource_language
-    external_resource_text_input_props('language', 'text', 'Language', true)
+  def external_resource_languages
+    external_resource_text_input_props('languages', 'text', 'languages', true)
   end
 
 end

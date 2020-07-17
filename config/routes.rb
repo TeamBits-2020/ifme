@@ -110,7 +110,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :resources, only: :new
+  resources :resources, only: %i[new create]
 
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
