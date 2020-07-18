@@ -6,7 +6,7 @@ module ExternalResourcesFormHelper
     new_form_props(external_resources_form_inputs, resources_path)
   end
 
-  private
+    private
 
   def external_resource_input_props(field, type, label, group = false)
     { id: "external_resource_#{field}", type: type,
@@ -20,7 +20,7 @@ module ExternalResourcesFormHelper
 
   def external_resource_text_input_props(field, type, label, required = false)
     external_resource_input_props(field, type, label)
-        .merge(value: @external_resource[field] || nil, required: required, dark: false)
+      .merge(value: @external_resource[field] || nil, required: required, dark: false)
   end
 
   def external_resource_name
@@ -32,7 +32,24 @@ module ExternalResourcesFormHelper
   end
 
   def external_resource_languages
-    external_resource_text_input_props('languages', 'text', 'languages', true)
+    {
+      id: 999,
+      name: 'external_resource[languages][]',
+      label: 'Choose a language',
+      type: 'select',
+      value: 'languages',
+      options: [
+        {
+          id: 1,
+          value: 'en',
+          label: 'English'
+        },
+        {
+          id: 2,
+          value: 'pt-BR',
+          label: 'Portuguese'
+        }
+      ]
+    }
   end
-
 end

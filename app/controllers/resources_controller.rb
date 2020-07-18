@@ -7,11 +7,7 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    attributes = { name: external_resources_params[:name],
-                   link: external_resources_params[:link],
-                   languages: [external_resources_params[:languages]]
-    }
-    @external_resource = ExternalResource.create! attributes
+    @external_resource = ExternalResource.create! external_resources_params
     if @external_resource.save
       redirect_to pages_home_path
     else
@@ -22,6 +18,6 @@ class ResourcesController < ApplicationController
   private
 
   def external_resources_params
-    params.require(:external_resource).permit(:name, :link, :languages)
+    params.require(:external_resource).permit(:name, :link, languages: [])
   end
 end
