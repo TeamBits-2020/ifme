@@ -6,7 +6,7 @@ module ExternalResourcesFormHelper
     new_form_props(external_resources_form_inputs, resources_path)
   end
 
-    private
+  private
 
   def external_resource_input_props(field, type, label, group = false)
     { id: "external_resource_#{field}", type: type,
@@ -48,6 +48,46 @@ module ExternalResourcesFormHelper
           id: 2,
           value: 'pt-BR',
           label: 'Portuguese'
+        },
+        {
+          id: 3,
+          value: 'es',
+          label: 'Spanish'
+        },
+        {
+          id: 4,
+          value: 'fr',
+          label: 'French'
+        },
+        {
+          id: 5,
+          value: 'it',
+          label: 'Italian'
+        },
+        {
+          id: 6,
+          value: 'hi',
+          label: 'Hindi'
+        },
+        {
+          id: 7,
+          value: 'nb',
+          label: 'Norwegian'
+        },
+        {
+          id: 8,
+          value: 'nl',
+          label: 'Dutch'
+        },
+        {
+          id: 9,
+          value: 'sv',
+          label: 'Swedish'
+        },
+        {
+          id: 10,
+          value: 'vi',
+          label: 'Vietnamese'
         }
       ]
     }
