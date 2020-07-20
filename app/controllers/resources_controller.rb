@@ -7,11 +7,13 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @external_resource = ExternalResource.create! external_resources_params
+    @external_resource = ExternalResource.new external_resources_params
     if @external_resource.save
-      redirect_to pages_home_path
+      redirect_to new_resource_path,
+                  notice: 'Your suggestion has been submitted!'
     else
-      redirect_to resources_path
+      redirect_to new_resource_path,
+                  alert: @external_resource.errors.full_messages.join("', '")
     end
   end
 
