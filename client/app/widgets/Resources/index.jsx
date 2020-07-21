@@ -44,6 +44,13 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
 
 const infoDescription = (
   <center className={css.marginBottom}>
+    <p>
+    <a
+      href={`/resources/new`}
+      >
+      {I18n.t('pages.resources.external_resource')}
+    </a>
+    </p>
     {I18n.t('pages.resources.description')}
     <p>
       <a
