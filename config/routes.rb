@@ -123,7 +123,6 @@ Rails.application.routes.draw do
   match 'resources', to: 'pages#resources', via: :get
   get 'home_data', to: 'pages#home_data', defaults: { format: 'json' }
 
-
   devise_for :users, controllers: { registrations: :registrations,
                                     omniauth_callbacks: 'omniauth_callbacks',
                                     invitations: 'users/invitations',

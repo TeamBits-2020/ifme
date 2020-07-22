@@ -9,7 +9,8 @@ module ExternalResourcesFormHelper
   private
 
   def external_resource_input_props(field, type, label, group = false)
-    { id: "external_resource_#{field}", type: type,
+    { id: "external_resource_#{field}",
+      type: type,
       name: "external_resource[#{field}]#{group ? '[]' : ''}",
       label: label }
   end

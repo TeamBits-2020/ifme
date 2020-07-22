@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ResourcesController < ApplicationController
   skip_before_action :if_not_signed_in
 
@@ -13,7 +14,7 @@ class ResourcesController < ApplicationController
                   notice: 'Your suggestion has been submitted!'
     else
       redirect_to new_resource_path,
-                  alert: @external_resource.errors.full_messages.join("', '")
+                  alert: @external_resource.errors.full_messages.join(',')
     end
   end
 
