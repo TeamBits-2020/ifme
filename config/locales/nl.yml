@@ -675,6 +675,7 @@ nl:
         class="noMarginBottom"><em>Privacy Policy gebaseerd op
         %{jamie_king_media}.</em></p>
     resources:
+      new: Stel een nieuwe bron voor
       description: >-
         Dit is onze samengestelde lijst met bronnen voor geestelijke
         gezondheidszorg, waaronder communities, educatieve tools, hotlines en

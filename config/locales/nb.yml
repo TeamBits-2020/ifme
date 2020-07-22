@@ -643,6 +643,7 @@ nb:
         bekymringer.</p><p class="noMarginBottom"><em>Retningslinjer for
         personvern tilpasset fra %{jamie_king_media}.</em></p>
     resources:
+      new: Foreslå en ny ressurs
       description: >-
         Dette er vår kuraterte liste over mental helse ressurser, som inkluderer
         lokalsamfunn, pedagogiske verktøy, hotlines og tjenester.

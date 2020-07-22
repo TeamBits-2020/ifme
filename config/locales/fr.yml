@@ -696,6 +696,7 @@ fr:
         class="noMarginBottom"><em> Politique de confidentialité adaptée de
         %{jamie_king_media}.</em></p>
     resources:
+      new: Suggérer une nouvelle ressource
       description: >-
         Voici notre liste de ressources en santé mentale, comprenant des
         communautés, des outils éducatifs, des lignes directes et des services.

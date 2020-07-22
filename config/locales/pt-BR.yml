@@ -688,6 +688,7 @@ pt-BR:
         class="noMarginBottom"><em>Política de Privacidade adaptada de
         %{jamie_king_media}.</em></p>
     resources:
+      new: Sugira um novo recurso
       description: >-
         Esta é a nossa lista de recursos de saúde mental, que inclui
         comunidades, ferramentas educacionais, linhas diretas e serviços.

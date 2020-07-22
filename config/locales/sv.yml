@@ -645,6 +645,7 @@ sv:
         class="noMarginBottom"><em>Sekretesspolicy anpassad från
         %{jamie_king_media}.</em></p>
     resources:
+      new: Föreslå en ny resurs
       description: >-
         Det här är vår kurerade lista över mentala resurser, som inkluderar
         samhällen, pedagogiska verktyg, hotlines och tjänster.
