@@ -646,6 +646,7 @@ sv:
         %{jamie_king_media}.</em></p>
     resources:
       new: Föreslå en ny resurs
+      external_resource: Föreslå en resurs
       description: >-
         Det här är vår kurerade lista över mentala resurser, som inkluderar
         samhällen, pedagogiska verktyg, hotlines och tjänster.

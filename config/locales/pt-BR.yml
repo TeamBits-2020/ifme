@@ -689,6 +689,7 @@ pt-BR:
         %{jamie_king_media}.</em></p>
     resources:
       new: Sugira um novo recurso
+      external_resource: Sugira um recurso
       description: >-
         Esta é a nossa lista de recursos de saúde mental, que inclui
         comunidades, ferramentas educacionais, linhas diretas e serviços.

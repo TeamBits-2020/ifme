@@ -522,6 +522,7 @@ zh-CN:
         <em>根据%{jamie_king_media}改编的隐私权政策。 </em> </p>
     resources:
       new: 提出新资源
+      external_resource: 建议资源
       description: 这是我们精选的精神健康参考资料小结，其中包括社区，教育工具，热线和服务。
       emergency: 如果你或你认识的某个人遇到精神健康紧急情况，请尽快寻求专业帮助。
       crisis_prevention:
