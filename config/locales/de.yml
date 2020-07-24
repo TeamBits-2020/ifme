@@ -733,6 +733,8 @@ de:
         hast.</p><p class="no_margin_bottom"> <em>Datenschutzrichtlinie
         angepasst von %{jamie_king_media}.</em></p>
     resources:
+      new: Eine neue Ressource vorschlagen
+      external_resource: Eine Ressource vorschlagen
       description: >-
         Dies ist unsere kuratierte Liste von Ressourcen für psychische
         Gesundheit, die Gemeinschaften, Bildungsinstrumente, Hotlines und

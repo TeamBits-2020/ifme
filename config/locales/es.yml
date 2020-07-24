@@ -676,6 +676,8 @@ es:
         preocupaciones.</p><p class="noMarginBottom"><em>Política de Privacidad
         adoptada de %{jamie_king_media}.</em></p>
     resources:
+      new: Sugerir un nuevo recurso
+      external_resource: Sugerir un recurso
       description: >-
         Esta es nuestra lista curada de recursos de salud mental, que incluye
         comunidades, herramientas educativas, líneas directas y servicios.

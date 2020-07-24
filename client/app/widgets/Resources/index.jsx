@@ -44,6 +44,11 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
 
 const infoDescription = (
   <center className={css.marginBottom}>
+    <p>
+      <a href={`/resources/new`}>
+        {I18n.t('pages.resources.external_resource')}
+      </a>
+    </p>
     {I18n.t('pages.resources.description')}
     <p>
       <a
@@ -59,8 +64,10 @@ const createCheckboxes = (resources: ResourceProp[], keywords: string[]) => {
   const tagsList = [
     ...new Set(
       resources
-        .map((resource: ResourceProp) => resource.tags.concat(resource.languages))
-        .reduce((acc, val) => acc.concat(val), []),
+        .map((resource: ResourceProp) =>
+          resource.tags.concat(resource.languages)
+        )
+        .reduce((acc, val) => acc.concat(val), [])
     ),
   ];
   return sortAlpha(
@@ -70,23 +77,24 @@ const createCheckboxes = (resources: ResourceProp[], keywords: string[]) => {
       value: tag,
       label: tag,
       checked: keywords.some(
-        (keyword) => keyword.toLowerCase() === tag.toLowerCase(),
+        (keyword) => keyword.toLowerCase() === tag.toLowerCase()
       ),
-    })),
+    }))
   );
 };
 
 const filterList = (
   checkboxes: Checkbox[],
-  resources: ResourceProp[],
+  resources: ResourceProp[]
 ): ResourceProp[] => {
   const selectedCheckboxes: Checkbox[] = checkboxes.filter(
-    (checkbox: Checkbox) => !!checkbox.checked,
+    (checkbox: Checkbox) => !!checkbox.checked
   );
   return resources.filter((resource: ResourceProp) => {
     const tagCheck = selectedCheckboxes.map((checkbox: Checkbox) =>
       // eslint-disable-next-line implicit-arrow-linebreak
-      resource.tags.concat(resource.languages).includes(checkbox.id));
+      resource.tags.concat(resource.languages).includes(checkbox.id)
+    );
     return selectedCheckboxes.length > 0 ? tagCheck.includes(true) : true;
   });
 };
@@ -97,16 +105,16 @@ export const Resources = ({
   history = HistoryLib,
 }: Props) => {
   const [checkboxes, setCheckboxes] = useState<Checkbox[]>(
-    createCheckboxes(resources, keywords),
+    createCheckboxes(resources, keywords)
   );
   const [filteredResources, setFilteredResources] = useState<ResourceProp[]>(
-    filterList(checkboxes, resources),
+    filterList(checkboxes, resources)
   );
   const [resourcesDisplayed, setResourcesDisplayed] = useState<number>(
-    Math.min(RESOURCES_PER_PAGE, filteredResources.length),
+    Math.min(RESOURCES_PER_PAGE, filteredResources.length)
   );
   const [lastPage, setLastPage] = useState<boolean>(
-    filteredResources.length <= RESOURCES_PER_PAGE,
+    filteredResources.length <= RESOURCES_PER_PAGE
   );
 
   useEffect(() => {
@@ -128,28 +136,30 @@ export const Resources = ({
   useEffect(() => {
     setLastPage(filteredResources.length <= RESOURCES_PER_PAGE);
     setResourcesDisplayed(
-      Math.min(RESOURCES_PER_PAGE, filteredResources.length),
+      Math.min(RESOURCES_PER_PAGE, filteredResources.length)
     );
   }, [filteredResources]);
 
   const checkboxChange = (box: Checkbox) => {
     setCheckboxes(
-      checkboxes.filter((checkbox) => checkbox.id !== box.id).concat(box),
+      checkboxes.filter((checkbox) => checkbox.id !== box.id).concat(box)
     );
   };
 
   const updateTagFilter = (tagLabel: String) => {
     const updatedBoxes = checkboxes.map((box) =>
       // eslint-disable-next-line implicit-arrow-linebreak
-      (box.label === tagLabel ? { ...box, checked: true } : box));
+      box.label === tagLabel ? { ...box, checked: true } : box
+    );
     setCheckboxes(updatedBoxes);
   };
 
   const onClick = () => {
-    const updatedResourcesDisplayed = Math.min(
-      filteredResources.length - resourcesDisplayed,
-      RESOURCES_PER_PAGE,
-    ) + resourcesDisplayed;
+    const updatedResourcesDisplayed =
+      Math.min(
+        filteredResources.length - resourcesDisplayed,
+        RESOURCES_PER_PAGE
+      ) + resourcesDisplayed;
 
     setResourcesDisplayed(updatedResourcesDisplayed);
     setLastPage(filteredResources.length === updatedResourcesDisplayed);

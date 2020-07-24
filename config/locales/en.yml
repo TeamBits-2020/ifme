@@ -631,6 +631,8 @@ en:
         class="noMarginBottom"><em>Privacy Policy adapted from
         %{jamie_king_media}.</em></p>
     resources:
+      new: Suggest a new resource
+      external_resource: Suggest a resource
       description: >-
         This is our curated list of mental health resources, which includes
         communities, educational tools, hotlines, and services.

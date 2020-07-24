@@ -661,6 +661,8 @@ it:
         qualcosa che ti preoccupa.</p> <p class="noMarginBottom"><em>Informativa
         sulla Privacy adattata da %{jamie_king_media}.</em></p>
     resources:
+      new: Suggerire una nuova risorsa
+      external_resource: Suggerire una risorsa
       description: >-
         Questa è la nostra lista curata di risorse per la salute mentale, che
         include comunità, strumenti educativi, hotline e servizi.

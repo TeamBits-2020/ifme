@@ -559,6 +559,8 @@ ko:
         class="noMarginBottom"><em>개인 정보 보호 정책이 %{jamie_king_media}에서
         조정되었습니다.</em></p>
     resources:
+      new: 새로운 자원을 제안하다
+      external_resource: 자원 제안
       description: '이것은 커뮤니티, 교육 도구, 핫라인, 서비스를 포함하는 정신 건강 자원의 큐레이션된 목록입니다.'
       emergency: '만약 여러분이나 여러분이 아는 누군가가 정신 건강이 심각할 정도로 악화되고 있다면, 가능한 한 빨리 도움을 요청하세요.'
       crisis_prevention:
